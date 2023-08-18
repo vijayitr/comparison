@@ -39851,7 +39851,7 @@ Ext.define("Ext.overrides.app.domain.Component", {
 		groupField: undefined,
 		groupDir: "ASC",
 		grouper: null,
-		pageSize: 10,
+		pageSize: 25,
 		autoSort: null
 	},
 	currentPage: 1,
@@ -48621,7 +48621,7 @@ Ext.define("Ext.overrides.app.domain.View", {
 (Ext.cmd.derive("Ext.data.PageMap", Ext.util.LruCache, {
 	config: {
 		store: null,
-		pageSize: 10,
+		pageSize: 0,
 		rootProperty: ""
 	},
 	clear: function(d) {
@@ -48825,7 +48825,7 @@ Ext.define("Ext.overrides.app.domain.View", {
 	buffered: true,
 	config: {
 		data: 0,
-		pageSize: 10,
+		pageSize: 25,
 		remoteSort: true,
 		remoteFilter: true,
 		sortOnLoad: false,
@@ -74581,9 +74581,6 @@ Ext.define("Overrides.dashboard.Panel", {
 	labelableRenderTpl: ["{beforeLabelTpl}", '<label id="{id}-labelEl" data-ref="labelEl" class="{labelCls} {labelCls}-{ui} {labelClsExtra} ', '{childElCls} {unselectableCls}" style="{labelStyle}"', '<tpl if="inputId && !skipLabelForAttribute"> for="{inputId}"</tpl>', " {labelAttrTpl}>", '<span class="{labelInnerCls} {labelInnerCls}-{ui}" style="{labelInnerStyle}">', "{beforeLabelTextTpl}", '<span id="{id}-labelTextEl" data-ref="labelTextEl" class="{labelTextCls}">', '<tpl if="fieldLabel">{fieldLabel}', '<tpl if="labelSeparator">{labelSeparator}</tpl>', "</tpl>", "</span>", "{afterLabelTextTpl}", "</span>", "</label>", "{afterLabelTpl}", '<div id="{id}-bodyEl" data-ref="bodyEl" role="presentation"', ' class="{baseBodyCls} {baseBodyCls}-{ui}<tpl if="fieldBodyCls">', ' {fieldBodyCls} {fieldBodyCls}-{ui}</tpl> {growCls} {extraFieldBodyCls}"', '<tpl if="bodyStyle"> style="{bodyStyle}"</tpl>>', "{beforeBodyEl}", "{beforeSubTpl}", "{[values.$comp.getSubTplMarkup(values)]}", "{afterSubTpl}", "{afterBodyEl}", '<tpl if="renderAriaElements">', '<tpl if="ariaHelp">', '<span id="{id}-ariaHelpEl" data-ref="ariaHelpEl"', ' class="x-hidden-offsets">', "{ariaHelp}", "</span>", "</tpl>", '<span id="{id}-ariaStatusEl" data-ref="ariaStatusEl" aria-hidden="true"', ' class="x-hidden-offsets">', "{ariaStatus}", "</span>", '<span id="{id}-ariaErrorEl" data-ref="ariaErrorEl" aria-hidden="true" aria-live="assertive"', ' class="x-hidden-clip">', "</span>", "</tpl>", "</div>", '<tpl if="renderError">', '<div id="{id}-errorWrapEl" data-ref="errorWrapEl" class="{errorWrapCls} {errorWrapCls}-{ui}', ' {errorWrapExtraCls}" style="{errorWrapStyle}">', '<div role="presentation" id="{id}-errorEl" data-ref="errorEl" ', 'class="{errorMsgCls} {invalidMsgCls} {invalidMsgCls}-{ui}" ', 'data-anchorTarget="{tipAnchorTarget}">', "</div>", "</div>", "</tpl>", {
 		disableFormats: true
 	}],
-	// labelableRenderTpl: ["{beforeLabelTpl}", '<label id="{id}-labelEl" data-ref="labelEl" class="{labelCls} {labelCls}-{ui} {labelClsExtra} ', '{childElCls} {unselectableCls}" style="{labelStyle}"', '<tpl if="inputId && !skipLabelForAttribute"> for="{inputId}"</tpl>', " {labelAttrTpl}>", '<span class="{labelInnerCls} {labelInnerCls}-{ui}" style="{labelInnerStyle}">', "{beforeLabelTextTpl}", '<span id="{id}-labelTextEl" data-ref="labelTextEl" class="{labelTextCls}">', '<tpl if="fieldLabel">{fieldLabel}', '<tpl if="labelSeparator">{labelSeparator}</tpl>', "</tpl>", "</span>", "{afterLabelTextTpl}", "</span>", "</label>", "{afterLabelTpl}", '<div id="{id}-bodyEl" data-ref="bodyEl" role="presentation"', ' class="{baseBodyCls} {baseBodyCls}-{ui}<tpl if="fieldBodyCls">', ' {fieldBodyCls} {fieldBodyCls}-{ui}</tpl> {growCls} {extraFieldBodyCls}"', '<tpl if="bodyStyle"> style="{bodyStyle}"</tpl>>', "{beforeBodyEl}", "{beforeSubTpl}", "{[values.$comp.getSubTplMarkup(values)]}", "{afterSubTpl}", "{afterBodyEl}", '<tpl if="renderAriaElements">', '<tpl if="ariaHelp">', '<span id="{id}-ariaHelpEl" data-ref="ariaHelpEl"', ' class="x-hidden-offsets">', "{ariaHelp}", "</span>", "</tpl>", '<span id="{id}-ariaStatusEl" data-ref="ariaStatusEl" aria-hidden="true"', ' class="x-hidden-offsets">', "{ariaStatus}", "</span>", '<span id="{id}-ariaErrorEl" data-ref="ariaErrorEl" aria-hidden="true" aria-live="assertive"', ' class="x-hidden-clip">', "</span>", "</tpl>", "</div>", '<tpl if="renderError">', '<div id="{id}-errorWrapEl" data-ref="errorWrapEl" class="{errorWrapCls} {errorWrapCls}-{ui}', ' {errorWrapExtraCls}" style="{errorWrapStyle}">', '<div role="presentation" id="{id}-errorEl" data-ref="errorEl" ', 'class="{errorMsgCls} {invalidMsgCls} {invalidMsgCls}-{ui}" ', 'data-anchorTarget="{tipAnchorTarget}">', "</div>", "</div>", "</tpl>", {
-	// 	disableFormats: true
-	// }],
 	activeErrorsTpl: undefined,
 	htmlActiveErrorsTpl: ['<tpl if="errors && errors.length">', '<ul class="{listCls}">', '<tpl for="errors"><li>{.}</li></tpl>', "</ul>", "</tpl>"],
 	plaintextActiveErrorsTpl: ['<tpl if="errors && errors.length">', '<tpl for="errors"><tpl if="xindex &gt; 1">\n</tpl>{.}</tpl>', "</tpl>"],
@@ -82770,7 +82767,6 @@ Ext.define("Overrides.form.field.Number", {
 	displayMsg: "Displaying {0} - {1} of {2}",
 	emptyMsg: "No data to display",
 	beforePageText: "Page",
-	cls:"x-pagination",
 	afterPageText: "of {0}",
 	firstText: "First Page",
 	prevText: "Previous Page",
@@ -82845,17 +82841,15 @@ Ext.define("Overrides.form.field.Number", {
 			disabled: true,
 			handler: c.moveLast,
 			scope: c
-		}, "-", 
-		// {
-		// 	itemId: "refresh",
-		// 	tooltip: c.refreshText,
-		// 	overflowText: c.refreshText,
-		// 	iconCls: "x-tbar-loading",
-		// 	disabled: c.store.isLoading(),
-		// 	handler: c.doRefresh,
-		// 	scope: c
-		// }
-	]
+		}, "-", {
+			itemId: "refresh",
+			tooltip: c.refreshText,
+			overflowText: c.refreshText,
+			iconCls: "x-tbar-loading",
+			disabled: c.store.isLoading(),
+			handler: c.doRefresh,
+			scope: c
+		}]
 	},
 	initComponent: function() {
 		var d = this,
@@ -90570,7 +90564,7 @@ Ext.define("Overrides.form.field.Tag", {
 	bufferedRenderer: true,
 	ownerGrid: null,
 	colLinesCls: "x-grid-with-col-lines",
-	rowLinesCls: "itr-grid-with-row-lines",
+	rowLinesCls: "x-grid-with-row-lines",
 	noRowLinesCls: "x-grid-no-row-lines",
 	hiddenHeaderCtCls: "x-grid-header-ct-hidden",
 	hiddenHeaderCls: "x-grid-header-hidden",
@@ -93170,7 +93164,7 @@ Ext.define("Ext.theme.neptune.panel.Table", {
 	ariaRole: "rowgroup",
 	rowAriaRole: "row",
 	cellAriaRole: "gridcell",
-	tpl: ["{%", "view = values.view;", "if (!(columns = values.columns)) {", "columns = values.columns = view.ownerCt.getVisibleColumnManager().getColumns();", "}", "values.fullWidth = 0;", "for (i = 0, len = columns.length; i < len; i++) {", "column = columns[i];", "values.fullWidth += (column.cellWidth = column.lastBox ? column.lastBox.width : column.width || column.minWidth);", "}", "tableCls=values.tableCls=[];", "%}", '<div class="x-grid-item-container itr-table-border" role="presentation" style="width:{fullWidth}px">', "{[view.renderTHead(values, out, parent)]}", "{%", "view.renderRows(values.rows, values.columns, values.viewStartIndex, out);", "%}", "{[view.renderTFoot(values, out, parent)]}", "</div>", "{% ", "view = columns = column = null;", "%}", {
+	tpl: ["{%", "view = values.view;", "if (!(columns = values.columns)) {", "columns = values.columns = view.ownerCt.getVisibleColumnManager().getColumns();", "}", "values.fullWidth = 0;", "for (i = 0, len = columns.length; i < len; i++) {", "column = columns[i];", "values.fullWidth += (column.cellWidth = column.lastBox ? column.lastBox.width : column.width || column.minWidth);", "}", "tableCls=values.tableCls=[];", "%}", '<div class="x-grid-item-container" role="presentation" style="width:{fullWidth}px">', "{[view.renderTHead(values, out, parent)]}", "{%", "view.renderRows(values.rows, values.columns, values.viewStartIndex, out);", "%}", "{[view.renderTFoot(values, out, parent)]}", "</div>", "{% ", "view = columns = column = null;", "%}", {
 		definitions: "var view, tableCls, columns, i, len, column;",
 		priority: 0
 	}],
@@ -97724,14 +97718,13 @@ Ext.define("Overrides.grid.RowEditor", {
 			if(f.sortable) {
 				d.push({
 					itemId: "columnItemSeparator",
-					xtype: "menuseparator",
+					xtype: "menuseparator"
 				})
 			}
 			d.push({
 				itemId: "columnItem",
 				text: f.columnsText,
 				iconCls: f.menuColsIcon,
-				cls:"itr-dropdown-columns",
 				menu: e,
 				hideOnClick: false
 			})
@@ -98047,7 +98040,6 @@ Ext.define("Overrides.grid.RowEditor", {
 		align: "start"
 	},
 	baseCls: "x-column-header",
-	cls: "x-column-header-over",
 	hoverCls: "x-column-header-over",
 	ariaRole: "columnheader",
 	enableFocusableContainer: false,
@@ -100235,7 +100227,6 @@ Ext.define("Overrides.grid.column.Template", {
 			var a = g.call(this);
 			a.push("-", {
 				iconCls: "x-group-by-icon",
-				cls:"itr-dropdown-groupby",
 				itemId: "groupMenuItem",
 				text: o,
 				handler: l.onGroupMenuItemClick,
@@ -109170,7 +109161,7 @@ Ext.define("Ext.theme.neptune.menu.Menu", {
 	rowSelectText: "Press Space to select this row",
 	rowDeselectText: "Press Space to deselect this row",
 	allowDeselect: true,
-	headerWidth: 50,
+	headerWidth: 24,
 	checkerOnCls: "x-grid-hd-checker-on",
 	tdCls: "x-grid-cell-special x-selmodel-column",
 	constructor: function() {
@@ -121098,14 +121089,10 @@ if(!document.createElement("canvas").getContext) {
 					y: 0,
 					textBaseline: "middle",
 					textAlign: "center",
-					// fontSize: "default",
-					fontSize: "13px",
+					fontSize: "default",
 					fontFamily: "default",
-					fontFamily: "arial",
-					// fontWeight: "default",
-					fontWeight: "300",
-					fillStyle: "rgb(190, 190, 190)"
-					// fillStyle: "white"
+					fontWeight: "default",
+					fillStyle: "black"
 				},
 				title: {
 					fillStyle: "black",
@@ -121114,13 +121101,10 @@ if(!document.createElement("canvas").getContext) {
 					fontWeight: "default"
 				},
 				style: {
-					strokeStyle: "white"
-					// strokeStyle: "black"
+					strokeStyle: "black"
 				},
 				grid: {
-					fillStyle: "white",
-					strokeStyle: "rgb(238, 238, 238)"
-					// strokeStyle: "rgb(221, 221, 221)"
+					strokeStyle: "rgb(221, 221, 221)"
 				}
 			},
 			top: {
@@ -132670,24 +132654,21 @@ Ext.define("Overrides.ux.form.SearchField", {
 		return c
 	},
 	formatMoneyDecimalWithoutColor: function(d) {
-		var c = Ext.util.Format.numberRenderer("0.00");
+		var c = Ext.util.Format.numberRenderer("0.000");
 		return App.user.currency + " " + c(d)
 	},
 	formatMoneyDecimal: function(e) {
 		var f = Helper.Util,
 			g = t("id") + "Money",
-			j = Ext.util.Format.numberRenderer("0.00");
+			j = Ext.util.Format.numberRenderer("0.000");
 		if(e > 0) {
-			return '<span style="color:green;">' + " $ " + j(e) + "</span>"
-			// return '<span style="color:green;">' + App.user.currency + " " + j(e) + "</span>"
+			return '<span style="color:green;">' + App.user.currency + " " + j(e) + "</span>"
 		} else {
 			if(e < 0) {
-				return '<span style="color:red;">' + " $ " + j(e) + "</span>"
-				// return '<span style="color:red;">' + App.user.currency + " " + j(e) + "</span>"
+				return '<span style="color:red;">' + App.user.currency + " " + j(e) + "</span>"
 			} else {
 				if(e == 0) {
-					return '<span style="color:blue;">' +  " $ " + j(e) + "</span>"
-					// return '<span style="color:blue;">' + App.user.currency + " " + j(e) + "</span>"
+					return '<span style="color:blue;">' + App.user.currency + " " + j(e) + "</span>"
 				}
 			}
 		}
@@ -132961,7 +132942,7 @@ Ext.define("Overrides.ux.form.SearchField", {
 				c = t("Blocked In Out");
 				break
 		}
-		return '<span style="color:' + color + '"> <span class="itr-form-bullet">●</span> ' + c + "</span>"
+		return '<span style="color:' + color + '">' + c + "</span>"
 	},
 	formatBooleanSms: function(f) {
 		var d = Helper.Util,
@@ -137629,8 +137610,8 @@ Ext.define("Overrides.ux.form.SearchField", {
 			e = f ? {
 				"border-right": "0px"
 			} : {
-				// "border-right": "1px solid red",
-				// "padding-right": "1px"
+				"border-right": "1px solid red",
+				"padding-right": "1px"
 			};
 		j.allowBlank = f;
 		if(!Ext.isEmpty(j.labelEl)) {
@@ -137644,44 +137625,51 @@ Ext.define("Overrides.ux.form.SearchField", {
 	},
 	supportLang: ["pt_BR", "en", "es", "fr", "it", "ru", "de"],
 	iconCls: "flag-" + window.lang,
+	cls:"langDropDown", 	
 	initComponent: function() {
 		var b = this;
-		b.menu = [{
-			text: t("German"),
-			iconCls: "flag-de",
-			scope: b,
-			handler: b.setLocale
-		}, {
-			text: t("English"),
-			iconCls: "flag-en",
-			scope: b,
-			handler: b.setLocale
-		}, {
-			text: t("French"),
-			iconCls: "flag-fr",
-			scope: b,
-			handler: b.setLocale
-		}, {
-			text: t("Italian"),
-			iconCls: "flag-it",
-			scope: b,
-			handler: b.setLocale
-		}, {
-			text: t("Russian"),
-			iconCls: "flag-ru",
-			scope: b,
-			handler: b.setLocale
-		}, {
-			text: t("Spanish"),
-			iconCls: "flag-es",
-			scope: b,
-			handler: b.setLocale
-		}, {
-			text: t("Portuguese"),
-			iconCls: "flag-pt_BR",
-			scope: b,
-			handler: b.setLocale
-		}];
+		
+		b.menu = {
+			cls: App.user.isAdmin ? "localeheader-menu admin" : "localeheader-menu",	
+			items:[
+				{
+					text: t("Germantt"),
+					iconCls: "flag-de",
+					scope: b,
+					handler: b.setLocale  
+				}, {
+					text: t("English"),
+					iconCls: "flag-en",
+					scope: b,
+					handler: b.setLocale
+				}, {
+					text: t("French"),
+					iconCls: "flag-fr",
+					scope: b,
+					handler: b.setLocale
+				}, {
+					text: t("Italian"),
+					iconCls: "flag-it",
+					scope: b,
+					handler: b.setLocale
+				}, {
+					text: t("Russian"),
+					iconCls: "flag-ru",
+					scope: b,
+					handler: b.setLocale
+				}, {
+					text: t("Spanish"),
+					iconCls: "flag-es",
+					scope: b,
+					handler: b.setLocale
+				}, {
+					text: t("Portuguese"),
+					iconCls: "flag-pt_BR",
+					scope: b,
+					handler: b.setLocale
+				}
+			]
+		};
 		Ext.button.Split.prototype.initComponent.apply(this, arguments)
 	},
 	setLocale: function(j) {
@@ -138270,7 +138258,7 @@ Ext.define("Overrides.ux.form.SearchField", {
 				Ext.each(menuItem.rows, function(item) {
 					text = (item.text.indexOf("t(") !== -1) ? eval(item.text) : item.text;
 					modules.push({
-						text: text,
+						text: text,						
 						iconCls: window.isTablet || window.isTablets ? "" : item.iconCls,
 						module: item.module,
 						leaf: item.leaf,
@@ -138282,6 +138270,7 @@ Ext.define("Overrides.ux.form.SearchField", {
 			}
 			menuText = (menuItem.text.indexOf("t(") !== -1) ? eval(menuItem.text) : menuItem.text;
 			iconCls = menuItem.iconCls || "file3";
+			
 			if(window.isTablets) {
 				menu.add({
 					rootVisible: true,
@@ -138296,6 +138285,8 @@ Ext.define("Overrides.ux.form.SearchField", {
 					root: {
 						children: modules
 					},
+					cls:menuItem.iconCls,
+					html:'',
 					iconCls: menuItem.iconCls
 				})
 			}
@@ -139941,8 +139932,7 @@ Ext.define("Overrides.ux.form.SearchField", {
 		}
 	},
 	onPrint: function(C) {
-		// C = C.isButton ? C : this.list.down("#btnPrint");
-		C = C.isButton ? C : C;
+		C = C.isButton ? C : this.list.down("#btnPrint");
 		var u = this,
 			r = window.isDesktop && App.desktop,
 			w = !window.isDesktop && u.list.module.ownerCt,
@@ -140730,9 +140720,8 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 	allowSearch: true,
 	fieldSearch: "",
 	filterFieldOnClick: true,
-	textNew: t("Create New"),
-	cls:"table-filter itr-base-class",
-	buttonNewWidth: 100,
+	textNew: t("New"),
+	buttonNewWidth: 70,
 	buttonNewHeight: "",
 	buttonDeleteWidth: 100,
 	glyphNew: icons.file,
@@ -140741,7 +140730,6 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 	textDelete: t("Delete"),
 	hiddenDeleteAll: false,
 	glyphDelete: icons.remove,
-	glyphRefresh: icons.loading,
 	textCleanFilter: t("Clear filters"),
 	iconClsCleanFilter: "icon-clean-filter",
 	textPrint: t("Print"),
@@ -140785,8 +140773,6 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 	buttonsTbar: [],
 	comparisonfilter: "st",
 	header: window.isTablet || window.isTablets ? false : "",
-	defaultBindProperty: "store",
-	currentPage: 0,
 	viewConfig: {
 		loadMask: {
 			msg: t("Loading...")
@@ -140816,40 +140802,72 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 				itemclick: "onEdit"
 			}
 		}
-		
 		if(f.allowSearch && !Ext.isEmpty(f.fieldSearch)) {
 			f.tbar.push({
-				emptyText: t("Search"),
-				// emptyText: t("Search") + " " + t(f.fieldSearch.split(".").slice(-1)[0]),
+				emptyText: t("Search") + " " + t(f.fieldSearch.split(".").slice(-1)[0]),
 				xtype: "searchfield",
 				fieldFilter: f.fieldSearch,
 				filterOnClick: f.filterFieldOnClick,
 				store: f.store,
 				comparison: f.comparisonfilter,
-				width: window.isTablet ? 80 : 220,
-				cls:"itr-search-form"
-				// width: window.isTablet ? 80 : 130
+				width: window.isTablet ? 80 : 130
 			})
 		}
-		// if(f.allowCreate) {
-		// 	f.tbar.push({
-		// 		text: f.textNew,
-		// 		width: f.buttonNewWidth,
-		// 		height: f.buttonNewHeight,
-		// 		glyph: f.glyphNew,
-		// 		handler: "onNew"
-		// 	})
-		// }
+		if(f.allowCreate) {
+			f.tbar.push({
+				text: f.textNew,
+				width: f.buttonNewWidth,
+				height: f.buttonNewHeight,
+				glyph: f.glyphNew,
+				handler: "onNew"
+			})
+		}
+		if(f.allowDelete && window.isTablet) {
+			f.tbar.push({
+				xtype: "button",
+				itemId: "btnPrint",
+				text: f.textDelete,
+				width: f.buttonDeleteWidth,
+				glyph: f.glyphDelete,
+				disabled: true,
+				reference: "delete",
+				handler: "onDelete"
+			})
+		} else {
+			if(f.allowDelete) {
+				f.tbar.push({
+					xtype: window.isTablet || !App.user.isAdmin ? "button" : "splitbutton",
+					itemId: "btnPrint",
+					text: f.textDelete,
+					width: f.buttonDeleteWidth,
+					glyph: f.glyphDelete,
+					disabled: true,
+					reference: "delete",
+					handler: "onDelete",
+					menu: [{
+						text: f.labelAll,
+						checked: false,
+						hidden: window.isTablet || !App.user.isAdmin || f.hiddenDeleteAll,
+						group: d,
+						value: "all"
+					}, {
+						text: f.labelSelected,
+						checked: true,
+						hidden: window.isTablet || !App.user.isAdmin,
+						group: d,
+						value: "selected"
+					}]
+				})
+			}
+		}
 		if(App.user.hidden_batch_update == 0) {
 			if((f.allowUpdate && f.buttonUpdateLot && !App.user.isClient && !window.isTablet) || f.buttonUpdateLotCallShopRate) {
 				f.tbar.push({
 					xtype: "splitbutton",
-					cls:"itr-table-select-box",
-					// iconCls: f.iconButtonUpdateLot,
+					iconCls: f.iconButtonUpdateLot,
 					text: f.textButtonUpdateLot,
 					enableToggle: true,
-					width: window.isTablet ? 85 : App.user.language == "en" ? 220 : 220,
-					// width: window.isTablet ? 85 : App.user.language == "en" ? 140 : 170,
+					width: window.isTablet ? 85 : App.user.language == "en" ? 140 : 170,
 					reference: "updateLot",
 					listeners: {
 						toggle: "onToggleUpdateLot"
@@ -140857,7 +140875,6 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 					menu: [{
 						text: f.labelAll,
 						checked: true,
-						cls:'itr-check',
 						group: e,
 						value: "all",
 						listeners: {
@@ -140866,7 +140883,6 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 					}, {
 						text: f.labelSelected,
 						checked: false,
-						cls:'itr-check',
 						group: e,
 						value: "selected",
 						disabled: true,
@@ -140877,280 +140893,55 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 				})
 			}
 		}
+		if(f.buttonCsv && !window.isTablet) {
+			f.tbar.push({
+				iconCls: f.iconButtonCsv,
+				text: f.textButtonCsv,
+				handler: f.actionButtonCsv,
+				width: f.widthButtonCsv
+			})
+		}
+		if(f.buttonImportCsv && !window.isTablet) {
+			f.tbar.push({
+				iconCls: f.iconButtonImportCsv,
+				text: f.textButtonImportCsv,
+				handler: "onImportCsv",
+				width: f.widthButtonCsv
+			})
+		}
+		if(f.extraButtons.length) {
+			f.tbar = Ext.Array.merge(f.tbar, f.extraButtons)
+		}
 		if(f.buttonPrint && !window.isTablet) {
 			f.tbar.push("->", {
 				xtype: "splitbutton",
-				// glyph: f.glyphPrint,
-				text: window.isTablet ? "" : "",
-				// text: window.isTablet ? "" : f.textPrint,
-				width: App.user.language == 56,
-				// width: App.user.language == "en" ? 100 : 110,
+				glyph: f.glyphPrint,
+				text: window.isTablet ? "" : f.textPrint,
+				width: App.user.language == "en" ? 100 : 110,
 				hidden: !f.allowPrint,
-				tooltip: {
-					text: "Print",
-					align: "t",// Set align to "t" to position the tooltip on the top
-					cls: "itr-print-tooltip"
-				},
 				handler: "onPrint",
-				cls:"itr-form-print",
-				value:"P",
-				group:"orientation",
-				menu: [
-					{
+				menu: [{
 					text: f.labelPicture,
 					checked: true,
-					cls:'itr-check',
 					group: "orientation",
 					value: "P",
 					handler: "onPrint"
 				}, {
 					text: f.labelLandscape,
 					checked: false,
-					cls:'itr-check',
 					group: "orientation",
 					value: "L",
-					handler: "onPrint",
-				}
-			]
+					handler: "onPrint"
+				}]
 			})
 		}
-		// if(f.allowDelete && window.isTablet) {
-		// 	f.tbar.push({
-		// 		xtype: "button",
-		// 		itemId: "btnPrint",
-		// 		text: f.textDelete,
-		// 		width: f.buttonDeleteWidth,
-		// 		glyph: f.glyphDelete,
-		// 		disabled: true,
-		// 		reference: "delete",
-		// 		handler: "onDelete"
-		// 	})
-		// } else {
-		// 	if(f.allowDelete) {
-		// 		f.tbar.push({
-		// 			xtype: window.isTablet || !App.user.isAdmin ? "button" : "splitbutton",
-		// 			itemId: "btnPrint",
-		// 			text: f.textDelete,
-		// 			width: f.buttonDeleteWidth,
-		// 			glyph: f.glyphDelete,
-		// 			disabled: true,
-		// 			reference: "delete",
-		// 			handler: "onDelete",
-		// 			menu: [{
-		// 				text: f.labelAll,
-		// 				checked: false,
-		// 				hidden: window.isTablet || !App.user.isAdmin || f.hiddenDeleteAll,
-		// 				group: d,
-		// 				value: "all"
-		// 			}, {
-		// 				text: f.labelSelected,
-		// 				checked: true,
-		// 				hidden: window.isTablet || !App.user.isAdmin,
-		// 				group: d,
-		// 				value: "selected"
-		// 			}]
-		// 		})
-		// 	}
-		// }
-		// if(App.user.hidden_batch_update == 0) {
-		// 	if((f.allowUpdate && f.buttonUpdateLot && !App.user.isClient && !window.isTablet) || f.buttonUpdateLotCallShopRate) {
-		// 		f.tbar.push({
-		// 			xtype: "splitbutton",
-		// 			iconCls: f.iconButtonUpdateLot,
-		// 			text: f.textButtonUpdateLot,
-		// 			enableToggle: true,
-		// 			width: window.isTablet ? 85 : App.user.language == "en" ? 140 : 170,
-		// 			reference: "updateLot",
-		// 			listeners: {
-		// 				toggle: "onToggleUpdateLot"
-		// 			},
-		// 			menu: [{
-		// 				text: f.labelAll,
-		// 				checked: true,
-		// 				group: e,
-		// 				value: "all",
-		// 				listeners: {
-		// 					checkchange: "onCheckChangeUpdateLot"
-		// 				}
-		// 			}, {
-		// 				text: f.labelSelected,
-		// 				checked: false,
-		// 				group: e,
-		// 				value: "selected",
-		// 				disabled: true,
-		// 				listeners: {
-		// 					checkchange: "onCheckChangeUpdateLot"
-		// 				}
-		// 			}]
-		// 		})
-		// 	}
-		// }
-		if(f.buttonCsv && !window.isTablet) {
-			f.tbar.push({
-				// iconCls: f.iconButtonCsv,
-				handler: f.actionButtonCsv,
-				width: 40,
-				cls:"itr-table-filter-btn",
-				tooltip: {
-					text: "Export CSV",
-					align: "t", // Set align to "t" to position the tooltip on the top
-					cls: "itr-export-tooltip"
-				},
-				// text: f.textButtonCsv,
-				// width: f.widthButtonCsv
-			})
-		}
-		if(f.buttonImportCsv && !window.isTablet) {
-			f.tbar.push({
-				iconCls: f.iconButtonImportCsv,
-				handler: "onImportCsv",
-				width: 40,
-				tooltip: {
-					text: "Import CSV",
-					align: "t" // Set align to "t" to position the tooltip on the top
-				},
-				// text: f.textButtonImportCsv,
-				// width: f.widthButtonCsv
-			})
-		}
-		// if(f.extraButtons.length) {
-		// 	f.tbar = Ext.Array.merge(f.tbar, f.extraButtons)
-		// }
-		// if(f.buttonPrint && !window.isTablet) {
-		// 	f.tbar.push("->", {
-		// 		xtype: "splitbutton",
-		// 		glyph: f.glyphPrint,
-		// 		text: window.isTablet ? "" : f.textPrint,
-		// 		width: App.user.language == "en" ? 100 : 110,
-		// 		hidden: !f.allowPrint,
-		// 		handler: "onPrint",
-		// 		menu: [{
-		// 			text: f.labelPicture,
-		// 			checked: true,
-		// 			group: "orientation",
-		// 			value: "P",
-		// 			handler: "onPrint"
-		// 		}, {
-		// 			text: f.labelLandscape,
-		// 			checked: false,
-		// 			group: "orientation",
-		// 			value: "L",
-		// 			handler: "onPrint"
-		// 		}]
-		// 	})
-		// }
 		if(f.buttonCleanFilter) {
 			f.tbar.push({
-				// iconCls: f.iconClsCleanFilter,
-				text: window.isTablet ? "" : "",
-				// text: window.isTablet ? "" : f.textCleanFilter,
+				iconCls: f.iconClsCleanFilter,
+				text: window.isTablet ? "" : f.textCleanFilter,
 				scope: f,
-				cls:"itr-form-filter",
-				// width: window.isTablet ? 50 : App.user.language == "en" ? 110 : 120,
-				width: window.isTablet ? 50 : App.user.language == 40,
-				handler: f.cleanFilters,
-				tooltip: {
-					text: "Clear Filters",
-					align: "t", // Set align to "t" to position the tooltip on the top
-					cls: "itr-clear-filter-tooltip"
-				},
-			})
-		}
-		f.tbar.push({
-			xtype: 'component', // Use the component xtype
-			html: '', // Blank HTML content
-			cls:"itr-form-seprator",
-			width: 1 // Adjust the width as needed
-		});
-		
-		f.tbar.push({
-			// itemId: "refresh",
-			// iconCls:"x-tbar-loading",
-			// text: f.textDelete,
-			// width: f.buttonDeleteWidth,
-			width: 40,
-			glyph: f.glyphRefresh,
-			cls:"itr-form-refresh",
-			scope: f,
-			tooltip: {
-				text: "Refresh",
-				align: "t", // Set align to "t" to position the tooltip on the top
-				cls: "itr-clear-refresh-tooltip"
-			},
-			handler: f.cleanFilters,
-		})
-		if(f.allowDelete && window.isTablet) {
-			f.tbar.push({
-				xtype: "button",
-				itemId: "btnPrint",
-				// text: f.textDelete,
-				// width: f.buttonDeleteWidth,
-				// glyph: f.glyphDelete,
-				width: 56,
-				cls:"itr-form-delete",
-				disabled: true,
-				reference: "delete",
-				handler: "onDelete",
-				tooltip: {
-					text: "Delete Selected",
-					align: "t", // Set align to "t" to position the tooltip on the top
-					cls: "itr-clear-delete-tooltip"
-				},
-			})
-		} else {
-			if(f.allowDelete) {
-				f.tbar.push({
-					xtype: window.isTablet || !App.user.isAdmin ? "button" : "splitbutton",
-					itemId: "btnPrint",
-					// text: f.textDelete,
-					// width: f.buttonDeleteWidth,
-					width: 56,
-					// glyph: f.glyphDelete,
-					cls:"itr-form-delete",
-					disabled: true,
-					reference: "delete",
-					handler: "onDelete",
-					tooltip: {
-						text: "Delete Selected",
-						align: "t", // Set align to "t" to position the tooltip on the top
-						cls: "itr-clear-delete-tooltip"
-					},
-					menu: [{
-						text: f.labelAll,
-						checked: false,
-						cls:'itr-check',
-						hidden: window.isTablet || !App.user.isAdmin || f.hiddenDeleteAll,
-						group: d,
-						value: "all"
-					}, {
-						text: f.labelSelected,
-						checked: true,
-						cls:'itr-check',
-						hidden: window.isTablet || !App.user.isAdmin,
-						group: d,
-						value: "selected"
-					}]
-				})
-			}
-		}
-		f.tbar.push({
-			xtype: 'component', // Use the component xtype
-			html: '', // Blank HTML content
-			cls:"itr-form-seprator",
-			width: 1 // Adjust the width as needed
-		});
-		if(f.extraButtons.length) {
-			f.tbar = Ext.Array.merge(f.tbar, f.extraButtons)
-		}
-		if(f.allowCreate) {
-			f.tbar.push({
-				text: f.textNew,
-				cls:"itr-create-btn",
-				width: 120,
-				// width: f.buttonNewWidth,
-				height: f.buttonNewHeight,
-				// glyph: f.glyphNew,
-				handler: "onNew"
+				width: window.isTablet ? 50 : App.user.language == "en" ? 110 : 120,
+				handler: f.cleanFilters
 			})
 		}
 		if(f.pagination) {
@@ -141184,16 +140975,6 @@ Ext.define("Overrides.ux.grid.FiltersFeature", {
 				f.view.refresh()
 			}
 		})
-	},
-	doRefresh: function() {
-		var d = this,
-			e = d.store,
-			f = e.currentPage;
-		if(d.fireEvent("beforechange", d, f) !== false) {
-			e.loadPage(f);
-			return true
-		}
-		return false
 	},
 	getExtraFilterClass: function(b) {
 		switch(b) {
@@ -142170,7 +141951,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			cls:"topmostheder_first",	
 			dockedItems: [{
 				xtype: "toolbar",
-				cls:"topmostheder",
+				cls: App.user.isAdmin ? "topmostheder admin" : "topmostheder",	
 				style: {
 					"padding-left": "0px",
 					"padding-top": "0px",
@@ -142188,54 +141969,60 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						"padding-bottom": "0px"
 					},	
 					hidden: window.isTablet || window.isTablets
-				}, "->", */ {
-					cls:"creditheader",
-					xtype: "credit",
-					width: "120px" 
-				}, {
+				}, "->", */  {
 					xtype: "locale",
 					cls:"localeheader",
 					hidden: window.isTablets || window.isTable
+				},{
+					cls:"creditheader",
+					xtype: "credit",
+					width: "240px",
+					height:"56px",	
 				}, {
 					xtype: "splitbutton",
 					cls:"splitheader",
 					scale: window.isTablet || window.isTablets ? "small" : "medium",
 					iconAlign: "top",
-					glyph: window.isTablet || window.isTablets ? "" : icons.user,
+					glyph: window.isTablet || window.isTablets ? "" : "",
 					handler: function() {
 						this.showMenu()
 					},
 					text: App.user.username,
-					menu: [{
+					menu: {
+						cls:"splitheader-menu",
+						width:210,
+						items: [ {
 						handler: "openChangePassword",
 						iconCls: "icon-change-password",
 						text: t("Change password"),
 						hidden: !App.user.isAdmin
 					}, {
 						text: t("Import logo"),
-						glyph: icons.cog,
+						iconCls: "icon-import-logo",
 						handler: "importLogo",
 						hidden: App.user.isClient || window.isTablet || window.isTablets
 					}, {
 						text: t("Import Login Background"),
-						glyph: icons.cog,
+						iconCls: "icon-login-background",
 						handler: "importLoginBackground",
 						hidden: !App.user.isAdmin || window.isTablet || window.isTablets
 					}, {
 						text: t("Theme settings"),
-						glyph: icons.cog,
+						iconCls: "icon-setting",
 						handler: "openSettings",
 						hidden: !App.user.isAdmin || window.isTablet || window.isTablets
 					}, {
 						text: t("About"),
-						glyph: icons.info,
+						iconCls: "icon-about",
 						handler: "openAbout",
 						hidden: window.isTablets || App.user.l.slice(4, 7) == "syn"
 					}, "-", {
-						glyph: icons.exit,
+						iconCls: "icon-logout",
+						cls:"exit_menu",	   
 						text: t("Exit"),
 						handler: "logout"
 					}]
+					},
 				}]
 			}]
 		} 
@@ -142254,9 +142041,10 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			defaultType: "treepanel",
 			autoScroll: true,
 			cls:"sidebar_logo",
+			bodyCls:"sidebar_logo_inner",
 			title: '<img style="padding: 0px 8px; width: 108px; height: 40px;" src="resources/images/logo_custom.png" alt="logo">',
 			header: !window.isTablet ? true : false,
-			defaults: {
+			defaults: {	
 				animFloat: true,
 				border: window.isThemeNeptune ? false : true,
 				autoScroll: window.isTablet || window.isTablets ? false : true,
@@ -142675,8 +142463,8 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 	autoShow: true,
 	initComponent: function() {
 		var b = this;
-		b.html = '<table width="330"><tr><td><div align="center"><img height="30" src="resources/images/logo.png"></div></td></tr><tr><td height="110" colspan="2"><fieldset style="padding: 5px; font: 10px tahoma,arial,helvetica; color:#949494; border: 0px;"><b>' + t("Developed by") + ":</b> MagnusSolution<br /><br><b>" + t("Version") + ":</b> " + App.user.version + "<br /><br><b>" + t("Site") + ':</b> <a id="credits" target="_blank" href="http://www.magnusbilling.org">www.magnusbilling.org</a><br /><br><b>' + t("Contact") + ':</b> <a id="credits" target="_blank" href="mailto:info@magnussolution.com">info@magnussolution.com</a><br /><br /><div align="center">© Copyright 2005-2020 - <a id="credits" target="_blank" href="http://www.magnussolution.com">MagnusSolution<a></div></fieldset></td></tr></table>';
-		Ext.window.Window.prototype.initComponent.apply(this, arguments)
+		b.html = '<table width="330"><tr><td><div align="center"><img height="75" src="resources/images/logo_custom.png"></div></td></tr><tr><td height="110" colspan="2"><fieldset style="padding: 5px; font: 10px tahoma,arial,helvetica; color:#949494; border: 0px;"><b>' + t("Developed by") + ":</b> Siptelcom<br /><br><b>" + t("Version") + ":</b> " + App.user.version + "<br /><br><b>" + t("Site") + ':</b> <a id="credits" target="_blank" href="http://siptelcom.org">siptelcom.org</a><br /><br><b>' + t("Contact") + ':</b> <a id="credits" target="_blank" href="mailto:mail@siptelcom.org">mail@siptelcom.org</a><br /><br /><div align="center">© Copyright 2023-2024 - <a id="credits" target="_blank" href="http://siptelcom.org">Siptelcom<a></div></fieldset></td></tr></table>';
+		Ext.window.Window.prototype.initComponent.apply(this, arguments)	
 	}
 }, 0, ["about"], ["component", "box", "container", "panel", "window", "about"], {
 	component: true,
@@ -144089,14 +143877,12 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 (Ext.cmd.derive("MBilling.view.user.List", Ext.ux.grid.Panel, {
 	store: "User",
 	fieldSearch: "username",
-	initComponent: function() { 
+	initComponent: function() {
 		var b = this;
 		b.extraButtons = [{
 			text: t("Bulk user"),
-			cls:"itr-form-bulk",
 			handler: "onBulk",
-			width: App.user.language == "en" ? 120 : 120,
-			// width: App.user.language == "en" ? 80 : 110,
+			width: App.user.language == "en" ? 80 : 110,
 			disabled: false,
 			hidden: App.user.isClient || !b.allowCreate || window.isTablet
 		}];
@@ -144106,94 +143892,77 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			flex: 1,
 			hidden: true,
 			hideable: App.user.isAdmin
-		},
-		{
-			header: t("DATE"),
-			renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-				if (value) {
-					const formattedDate = Ext.util.Format.date(value, "Y-m-d");
-					const formattedTime = Ext.util.Format.date(value, "H:i:s");
-					return `${formattedDate} <br/><small class='itr-date-small'>at ${formattedTime}</small>`;
-				} else {
-					return '';
-				}
-			},
-			// renderer: Ext.util.Format.dateRenderer("Y-m-d") +" <br/><small> at "+ Ext.util.Format.dateRenderer("H:i:s") + "</small>",
-			dataIndex: "creationdate",
-			hidden: window.isTablet,
-			flex: 4
-		},
-		{
-			header: t("USERNAME"),
+		}, {
+			header: t("Username"),
 			dataIndex: "username",
-			flex: 5
+			flex: 2
 		}, {
-			header: t("LAST NAME"),
+			header: t("Last name"),
 			dataIndex: "lastname",
-			flex: 5
+			flex: 3
 		}, {
-			header: t("FIRST NAME"),
+			header: t("First name"),
 			dataIndex: "firstname",
-			flex: 5,
+			flex: 3,
 			hidden: window.isTablet
 		}, {
-			header: t("EMAIL"),
+			header: t("Email"),
 			dataIndex: "email",
 			flex: 4,
 			hidden: window.isTablet
 		}, {
-			header: t("EMAIL") + " 2",
+			header: t("Email") + " 2",
 			dataIndex: "email2",
-			flex: 3,
+			flex: 4,
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent
 		}, {
-			header: t("CREDIT"),
+			header: t("Credit"),
 			dataIndex: "credit",
 			renderer: Helper.Util.formatMoneyDecimal,
-			flex: 4
+			flex: 2
 		}, {
 			xtype: "templatecolumn",
 			tpl: "{idPlanname}",
-			header: t("PLAN"),
+			header: t("Plan"),
 			dataIndex: "id_plan",
 			comboFilter: "plancombo",
 			hidden: window.isTablet,
-			flex: 4
+			flex: 3
 		}, {
-			header: t("SLIP USERS"),
+			header: t("Sip Users"),
 			dataIndex: "sip_count",
-			flex: 3,
+			flex: 2,
 			hidden: !App.user.isAdmin
 		}, {
-			header: t("OFFER BALANCE"),
+			header: t("Offer balance"),
 			dataIndex: "offer",
 			hidden: !App.user.isClient || window.isTablet,
 			flex: 2
 		}, {
 			xtype: "templatecolumn",
 			tpl: "{idGroupname}",
-			header: t("GROUP"),
+			header: t("Group"),
 			dataIndex: "id_group",
 			comboFilter: "groupusercombo",
 			flex: 2,
 			hidden: App.user.isClient || App.user.isAgent || window.isTablet,
 			hideable: !App.user.isClient && !App.user.isAgent
 		}, {
-			header: t("AGENT"),
+			header: t("Agent"),
 			dataIndex: "idUserusername",
 			filter: {
 				type: "string",
 				field: "idUser.username"
 			},
-			flex: 4,
+			flex: 2,
 			hidden: !App.user.isAdmin || window.isTablet,
 			hideable: App.user.isAdmin
 		}, {
-			header: t("STATUS"),
+			header: t("Status"),
 			dataIndex: "active",
 			renderer: Helper.Util.formatUserStatus,
-			flex: 4,
+			flex: 2,
 			filter: {
 				type: "list",
 				options: [
@@ -144206,22 +143975,20 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			},
 			hidden: App.user.isClient || window.isTablet,
 			hideable: !App.user.isClient
-		}, 
-		// {
-		// 	header: t("Creation date"),
-		// 	renderer: Ext.util.Format.dateRenderer("Y-m-d H:i:s"),
-		// 	dataIndex: "creationdate",
-		// 	hidden: window.isTablet,
-		// 	flex: 4
-		// }, 
-		{
+		}, {
+			header: t("Creation date"),
+			renderer: Ext.util.Format.dateRenderer("Y-m-d H:i:s"),
+			dataIndex: "creationdate",
+			hidden: window.isTablet,
+			flex: 4
+		}, {
 			dataIndex: "id_offer",
-			header: t("OFFER"),
+			header: t("Offer"),
 			flex: 2,
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent
 		}, {
-			header: t("TYPE PAID"),
+			header: t("Type paid"),
 			dataIndex: "typepaid",
 			flex: 2,
 			renderer: Helper.Util.formattypepaid,
@@ -144235,37 +144002,37 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent
 		}, {
-			header: t("COMPANY NAME"),
+			header: t("Company name"),
 			dataIndex: "company_name",
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent,
 			flex: 2
 		}, {
-			header: t("CITY"),
+			header: t("City"),
 			dataIndex: "city",
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent,
 			flex: 1
 		}, {
-			header: t("STATE"),
+			header: t("State"),
 			dataIndex: "state",
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent,
 			flex: 1
 		}, {
-			header: t("COUNTRY"),
+			header: t("Country"),
 			dataIndex: "country",
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent,
 			flex: 1
 		}, {
-			header: t("ZIP CODE"),
+			header: t("Zip code"),
 			dataIndex: "zipcode",
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent,
 			flex: 1
 		}, {
-			header: t("PHONE"),
+			header: t("Phone"),
 			dataIndex: "phone",
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent,
@@ -144277,13 +144044,13 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			hideable: !App.user.isClient && !App.user.isAgent,
 			flex: 1
 		}, {
-			header: t("CREDIT LIMIT"),
+			header: t("Credit limit"),
 			dataIndex: "creditlimit",
 			hidden: true,
 			hideable: !App.user.isClient && !App.user.isAgent,
 			flex: 1
 		}, {
-			header: t("CPS LIMIT"),
+			header: t("CPS Limit"),
 			dataIndex: "cpslimit",
 			hidden: true,
 			hideable: window.dialC && App.user.isAdmin,
@@ -144295,13 +144062,13 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			hideable: App.user.isAdmin,
 			flex: 2
 		}, {
-			header: t("DESCRIPTION"),
+			header: t("Description"),
 			dataIndex: "description",
 			hidden: true,
 			hideable: App.user.isAdmin,
 			flex: 4
 		}, {
-			header: t("EXPIRATION DATE"),
+			header: t("Expiration date"),
 			renderer: Ext.util.Format.dateRenderer("Y-m-d H:i:s"),
 			dataIndex: "expirationdate",
 			hidden: true,
@@ -144357,220 +144124,79 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 				title: t("General"),
 				itemId: "mainData",
 				reference: "mainData",
-				cls:"itr-form-control",
-				items: [
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [{
-						name: "username",
-						fieldLabel: t("Username"),
-						allowBlank: true,
-						flex: 2,
-						readOnly: App.user.isClient,
-					}, {
-						name: "password",
-						fieldLabel: t("Password"),
-						allowBlank: true,
-						flex: 2,
-						hidden: App.user.isClient,
-						allowBlank: App.user.isClient
-					}]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							xtype: "groupusercombo",
-							flex: 2,
-							name: "id_group",
-							fieldLabel: t("Group"),
-							allowBlank: !App.user.isAdmin,
-							hidden: !App.user.isAdmin
-						}, {
-							xtype: "groupuseragentcombo",
-							flex: 2,
-							name: "id_group_agent",
-							fieldLabel: t("Group for agent users"),
-							emptyText: t("SELECT GROUP FOR AGENT USERS"),
-							hidden: true,
-							allowBlank: true
-						},
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							xtype: "planlookup",
-							ownerForm: b,
-							flex: 2,
-							name: "id_plan",
-							fieldLabel: t("Plan"),
-							hidden: App.user.isClient,
-							allowBlank: App.user.isClient
-						}, 
-						{
-							xtype: "languagecombo",
-							name: "language",
-							flex: 2,
-							fieldLabel: t("Language"),
-							value: App.user.language == "pt_BR" ? "br" : App.user.language
-						}, 
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							name: "prefix_local",
-							fieldLabel: t("Prefix rules"),
-							flex: 2,
-							value: window.default_prefix_rule.length < 3 && App.user.language == "pt_BR" ? "0/55/11,0/55/12,*/5511/8,*/5511/9" : window.default_prefix_rule,
-							allowBlank: true,
-							emptyText: "match / replace / length",
-							hidden: App.user.isClient
-						},  
-						{
-							xtype: "combo",
-							name: "active",
-							flex: 2,
-							fieldLabel: t("Active"),
-							fieldLabel: t("Status"),
-							forceSelection: true,
-							editable: false,
-							value: 1,
-							store: [
-								[1, t("Active")],
-								[0, t("Inactivated")],
-								[2, t("Pending")],
-								[3, t("Blocked In")],
-								[4, t("Blocked In Out")]
-							],
-							hidden: App.user.isClient,
-							allowBlank: App.user.isClient
-						},
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							xtype: "countrycombo",
-							flex: 2,
-							name: "country",
-							fieldLabel: t("Country"),
-							value: App.user.language == "pt_BR" ? "55" : "1",
-							allowBlank: true
-						}, 
-						{
-							xtype: "offercombo",
-							flex: 2,
-							name: "id_offer",
-							fieldLabel: t("Activate offer"),
-							allowBlank: true
-						},
-					]
-				},
-				// {
-				// name: "username",
-				// fieldLabel: t("Username"),
-				// maxLength: 20,
-				// minLength: 4,
-				// readOnly: App.user.isClient,
-				// },
-				// {
-				// name: "password",
-				// fieldLabel: t("Password"),
-				// minLength: 6,
-				// hidden: App.user.isClient,
-				// allowBlank: App.user.isClient
-				// }, 
-				// {
-				// 	xtype: "groupusercombo",
-				// 	name: "id_group",
-				// 	fieldLabel: t("Group"),
-				// 	allowBlank: !App.user.isAdmin,
-				// 	hidden: !App.user.isAdmin
-				// }, {
-				// 	xtype: "groupuseragentcombo",
-				// 	name: "id_group_agent",
-				// 	fieldLabel: t("Group for agent users"),
-				// 	emptyText: t("SELECT GROUP FOR AGENT USERS"),
-				// 	hidden: true,
-				// 	allowBlank: true
-				// }, 
-				// {
-				// 	xtype: "planlookup",
-				// 	ownerForm: b,
-				// 	name: "id_plan",
-				// 	fieldLabel: t("Plan"),
-				// 	hidden: App.user.isClient,
-				// 	allowBlank: App.user.isClient
-				// }, 
-				// {
-				// 	xtype: "languagecombo",
-				// 	name: "language",
-				// 	fieldLabel: t("Language"),
-				// 	value: App.user.language == "pt_BR" ? "br" : App.user.language
-				// }, 
-				// {
-				// 	name: "prefix_local",
-				// 	fieldLabel: t("Prefix rules"),
-				// 	value: window.default_prefix_rule.length < 3 && App.user.language == "pt_BR" ? "0/55/11,0/55/12,*/5511/8,*/5511/9" : window.default_prefix_rule,
-				// 	allowBlank: true,
-				// 	emptyText: "match / replace / length",
-				// 	hidden: App.user.isClient
-				// }, 
-				// {
-				// 	xtype: "combo",
-				// 	name: "active",
-				// 	fieldLabel: t("Active"),
-				// 	fieldLabel: t("Status"),
-				// 	forceSelection: true,
-				// 	editable: false,
-				// 	value: 1,
-				// 	store: [
-				// 		[1, t("Active")],
-				// 		[0, t("Inactivated")],
-				// 		[2, t("Pending")],
-				// 		[3, t("Blocked In")],
-				// 		[4, t("Blocked In Out")]
-				// 	],
-				// 	hidden: App.user.isClient,
-				// 	allowBlank: App.user.isClient
-				// }, 
-				// -
-				{
+				items: [{
+					name: "username",
+					fieldLabel: t("Username"),
+					maxLength: 20,
+					minLength: 4,
+					readOnly: App.user.isClient
+				}, {
+					name: "password",
+					fieldLabel: t("Password"),
+					minLength: 6,
+					hidden: App.user.isClient,
+					allowBlank: App.user.isClient
+				}, {
+					xtype: "groupusercombo",
+					name: "id_group",
+					fieldLabel: t("Group"),
+					allowBlank: !App.user.isAdmin,
+					hidden: !App.user.isAdmin
+				}, {
+					xtype: "groupuseragentcombo",
+					name: "id_group_agent",
+					fieldLabel: t("Group for agent users"),
+					emptyText: t("SELECT GROUP FOR AGENT USERS"),
+					hidden: true,
+					allowBlank: true
+				}, {
+					xtype: "planlookup",
+					ownerForm: b,
+					name: "id_plan",
+					fieldLabel: t("Plan"),
+					hidden: App.user.isClient,
+					allowBlank: App.user.isClient
+				}, {
+					xtype: "languagecombo",
+					name: "language",
+					fieldLabel: t("Language"),
+					value: App.user.language == "pt_BR" ? "br" : App.user.language
+				}, {
+					name: "prefix_local",
+					fieldLabel: t("Prefix rules"),
+					value: window.default_prefix_rule.length < 3 && App.user.language == "pt_BR" ? "0/55/11,0/55/12,*/5511/8,*/5511/9" : window.default_prefix_rule,
+					allowBlank: true,
+					emptyText: "match / replace / length",
+					hidden: App.user.isClient
+				}, {
+					xtype: "combo",
+					name: "active",
+					fieldLabel: t("Active"),
+					fieldLabel: t("Status"),
+					forceSelection: true,
+					editable: false,
+					value: 1,
+					store: [
+						[1, t("Active")],
+						[0, t("Inactivated")],
+						[2, t("Pending")],
+						[3, t("Blocked In")],
+						[4, t("Blocked In Out")]
+					],
+					hidden: App.user.isClient,
+					allowBlank: App.user.isClient
+				}, {
+					xtype: "countrycombo",
+					name: "country",
+					fieldLabel: t("Country"),
+					value: App.user.language == "pt_BR" ? "55" : "1",
+					allowBlank: true
+				}, {
+					xtype: "offercombo",
+					name: "id_offer",
+					fieldLabel: t("Activate offer"),
+					allowBlank: true
+				}, {
 					xtype: "numberfield",
 					name: "cpslimit",
 					fieldLabel: t("CPS Limit"),
@@ -144598,8 +144224,37 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 				title: t("Personal data"),
 				itemId: "personalData",
 				reference: "personalData",
-				items: [
-				{
+				items: [{
+					name: "company_website",
+					fieldLabel: t("Company website"),
+					allowBlank: true
+				}, {
+					name: "company_name",
+					fieldLabel: t("Company name"),
+					allowBlank: true
+				}, {
+					name: "commercial_name",
+					fieldLabel: t("Commercial name"),
+					allowBlank: true,
+					hidden: App.user.base_country = !"BRL"
+				}, {
+					name: "state_number",
+					fieldLabel: t("State number"),
+					allowBlank: true,
+					hidden: App.user.base_country = !"BRL"
+				}, {
+					name: "lastname",
+					fieldLabel: t("Last name"),
+					allowBlank: true,
+					maxLength: 40,
+					minLength: 4
+				}, {
+					name: "firstname",
+					fieldLabel: t("First name"),
+					allowBlank: true,
+					maxLength: 40,
+					minLength: 4
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					defaults: {
@@ -144607,21 +144262,26 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						labelAlign: "right",
 						flex: 1
 					},
-					items: [
-						{
-							name: "company_website",
-							fieldLabel: t("Company website"),
-							allowBlank: true,
-							flex: 2
-						}, {
-							name: "company_name",
-							fieldLabel: t("Company name"),
-							allowBlank: true,
-							flex: 2
-						}, 
-					]
-				},
-				{
+					items: [{
+						name: "city",
+						fieldLabel: t("City"),
+						allowBlank: true,
+						labelWidth: 145,
+						maxLength: 40,
+						minLength: 4,
+						flex: 2
+					}, {
+						name: "state",
+						fieldLabel: t("State"),
+						allowBlank: true,
+						maxLength: 20,
+						minLength: 2
+					}]
+				}, {
+					name: "address",
+					fieldLabel: t("Address"),
+					allowBlank: true
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					defaults: {
@@ -144629,23 +144289,19 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						labelAlign: "right",
 						flex: 1
 					},
-					items: [
-						{
-							name: "commercial_name",
-							fieldLabel: t("Commercial name"),
-							allowBlank: true,
-							flex: 2,
-							hidden: App.user.base_country = !"BRL"
-						}, {
-							name: "state_number",
-							fieldLabel: t("State number"),
-							allowBlank: true,
-							flex: 2,
-							hidden: App.user.base_country = !"BRL"
-						},  
-					]
-				},
-				{
+					items: [{
+						name: "neighborhood",
+						fieldLabel: t("Neighborhood"),
+						allowBlank: true,
+						labelWidth: 145,
+						flex: 2
+					}, {
+						name: "zipcode",
+						fieldLabel: t("Zip code"),
+						allowBlank: true,
+						flex: 2
+					}]
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					defaults: {
@@ -144653,25 +144309,21 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						labelAlign: "right",
 						flex: 1
 					},
-					items: [
-						{
-							name: "lastname",
-							fieldLabel: t("Last name"),
-							allowBlank: true,
-							flex: 2,
-							maxLength: 40,
-							minLength: 4
-						}, {
-							name: "firstname",
-							fieldLabel: t("First name"),
-							allowBlank: true,
-							flex: 2,
-							maxLength: 40,
-							minLength: 4
-						},   
-					]
-				},
-				{
+					items: [{
+						name: "phone",
+						fieldLabel: t("Phone"),
+						allowBlank: true,
+						labelWidth: 145,
+						maxLength: 13,
+						minLength: 8
+					}, {
+						name: "mobile",
+						fieldLabel: t("Mobile"),
+						allowBlank: true,
+						maxLength: 20,
+						minLength: 8
+					}]
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					defaults: {
@@ -144679,25 +144331,17 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						labelAlign: "right",
 						flex: 1
 					},
-					items: [
-						{
-							name: "city",
-							fieldLabel: t("City"),
-							allowBlank: true,
-							maxLength: 40,
-							minLength: 4,
-							flex: 2
-						}, {
-							name: "state",
-							fieldLabel: t("State"),
-							allowBlank: true,
-							maxLength: 20,
-							minLength: 2,
-							flex: 2
-						}   
-					]
-				},
-				{
+					items: [{
+						name: "email",
+						fieldLabel: t("Email"),
+						allowBlank: true,
+						labelWidth: 145
+					}, {
+						name: "email2",
+						fieldLabel: t("Email") + " 2",
+						allowBlank: true
+					}]
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					defaults: {
@@ -144705,302 +144349,31 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						labelAlign: "right",
 						flex: 1
 					},
-					items: [
-						{
-							name: "address",
-							fieldLabel: t("Address"),
-							allowBlank: true,
-							maxLength: 40,
-							minLength: 4,
-						}
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							name: "neighborhood",
-							fieldLabel: t("Neighborhood"),
-							allowBlank: true,
-							flex: 2
-						}, {
-							name: "zipcode",
-							fieldLabel: t("Zip code"),
-							allowBlank: true,
-							flex: 2
-						}
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							name: "phone",
-							fieldLabel: t("Phone"),
-							allowBlank: true,
-							maxLength: 13,
-							flex: 2,
-							minLength: 8
-						}, {
-							name: "mobile",
-							fieldLabel: t("Mobile"),
-							allowBlank: true,
-							maxLength: 20,
-							flex: 2,
-							minLength: 8
-						}
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							name: "email",
-							fieldLabel: t("Email"),
-							allowBlank: true,
-							flex: 2
-							// labelWidth: 145
-						}, {
-							name: "email2",
-							fieldLabel: t("Email") + " 2",
-							allowBlank: true,
-							flex: 2
-						}
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							name: "doc",
-							fieldLabel: t("DOC"),
-							allowBlank: true,
-							// labelWidth: 145,
-							flex: 2
-						}, {
-							name: "vat",
-							fieldLabel: t("VAT"),
-							hidden: App.user.isClient,
-							allowBlank: true,
-							flex: 2
-						}
-					]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							xtype: "moneyfield",
-							name: "contract_value",
-							fieldLabel: t("Contract value"),
-							mask: App.user.currency + " #9.999.990,00",
-							value: 0,
-							readOnly: App.user.isClient,
-							allowBlank: true,
-							flex: 2
-						},
-						{
-							name: "dist",
-							fieldLabel: t("DIST"),
-							hidden: App.user.isClient,
-							allowBlank: true,
-							flex: 2
-						}
-					]
-				},
-				
-				// {
-				// 	name: "company_website",
-				// 	fieldLabel: t("Company website"),
-				// 	allowBlank: true
-				// }, {
-				// 	name: "company_name",
-				// 	fieldLabel: t("Company name"),
-				// 	allowBlank: true
-				// }, 
-				// {
-				// 	name: "commercial_name",
-				// 	fieldLabel: t("Commercial name"),
-				// 	allowBlank: true,
-				// 	hidden: App.user.base_country = !"BRL"
-				// }, {
-				// 	name: "state_number",
-				// 	fieldLabel: t("State number"),
-				// 	allowBlank: true,
-				// 	hidden: App.user.base_country = !"BRL"
-				// }, 
-				// {
-				// 	name: "lastname",
-				// 	fieldLabel: t("Last name"),
-				// 	allowBlank: true,
-				// 	maxLength: 40,
-				// 	minLength: 4
-				// }, {
-				// 	name: "firstname",
-				// 	fieldLabel: t("First name"),
-				// 	allowBlank: true,
-				// 	maxLength: 40,
-				// 	minLength: 4
-				// }, 
-				// {
-				// 	xtype: "fieldcontainer",
-				// 	layout: "hbox",
-				// 	defaults: {
-				// 		xtype: "textfield",
-				// 		labelAlign: "right",
-				// 		flex: 1
-				// 	},
-				// 	items: [
-				// 		{
-				// 		name: "city",
-				// 		fieldLabel: t("City"),
-				// 		allowBlank: true,
-				// 		labelWidth: 145,
-				// 		maxLength: 40,
-				// 		minLength: 4,
-				// 		flex: 2
-				// 	}, {
-				// 		name: "state",
-				// 		fieldLabel: t("State"),
-				// 		allowBlank: true,
-				// 		maxLength: 20,
-				// 		minLength: 2
-				// 	}
-				// ]},
-				// {
-				// 	name: "address",
-				// 	fieldLabel: t("Address"),
-				// 	allowBlank: true
-				// }, 
-				// {
-				// 	xtype: "fieldcontainer",
-				// 	layout: "hbox",
-				// 	defaults: {
-				// 		xtype: "textfield",
-				// 		labelAlign: "right",
-				// 		flex: 1
-				// 	},
-				// 	items: [{
-				// 		name: "neighborhood",
-				// 		fieldLabel: t("Neighborhood"),
-				// 		allowBlank: true,
-				// 		labelWidth: 145,
-				// 		flex: 2
-				// 	}, {
-				// 		name: "zipcode",
-				// 		fieldLabel: t("Zip code"),
-				// 		allowBlank: true,
-				// 		flex: 2
-				// 	}]
-				// }, 
-				// {
-				// 	xtype: "fieldcontainer",
-				// 	layout: "hbox",
-				// 	defaults: {
-				// 		xtype: "textfield",
-				// 		labelAlign: "right",
-				// 		flex: 1
-				// 	},
-				// 	items: [{
-				// 		name: "phone",
-				// 		fieldLabel: t("Phone"),
-				// 		allowBlank: true,
-				// 		labelWidth: 145,
-				// 		maxLength: 13,
-				// 		minLength: 8
-				// 	}, {
-				// 		name: "mobile",
-				// 		fieldLabel: t("Mobile"),
-				// 		allowBlank: true,
-				// 		maxLength: 20,
-				// 		minLength: 8
-				// 	}]
-				// }, 
-				// {
-				// 	xtype: "fieldcontainer",
-				// 	layout: "hbox",
-				// 	defaults: {
-				// 		xtype: "textfield",
-				// 		labelAlign: "right",
-				// 		flex: 1
-				// 	},
-				// 	items: [{
-				// 		name: "email",
-				// 		fieldLabel: t("Email"),
-				// 		allowBlank: true,
-				// 		labelWidth: 145
-				// 	}, {
-				// 		name: "email2",
-				// 		fieldLabel: t("Email") + " 2",
-				// 		allowBlank: true
-				// 	}]
-				// }, 
-				// {
-				// 	xtype: "fieldcontainer",
-				// 	layout: "hbox",
-				// 	defaults: {
-				// 		xtype: "textfield",
-				// 		labelAlign: "right",
-				// 		flex: 1
-				// 	},
-				// 	items: [{
-				// 		name: "doc",
-				// 		fieldLabel: t("DOC"),
-				// 		allowBlank: true,
-				// 		labelWidth: 145
-				// 	}, {
-				// 		name: "vat",
-				// 		fieldLabel: t("VAT"),
-				// 		hidden: App.user.isClient,
-				// 		allowBlank: true
-				// 	}]
-				// },
-				// {
-				// 	xtype: "moneyfield",
-				// 	name: "contract_value",
-				// 	fieldLabel: t("Contract value"),
-				// 	mask: App.user.currency + " #9.999.990,00",
-				// 	value: 0,
-				// 	readOnly: App.user.isClient,
-				// 	allowBlank: true
-				// },
-				// {
-				// 	name: "dist",
-				// 	fieldLabel: t("DIST"),
-				// 	hidden: App.user.isClient,
-				// 	allowBlank: true
-				// }
-			]
+					items: [{
+						name: "doc",
+						fieldLabel: t("DOC"),
+						allowBlank: true,
+						labelWidth: 145
+					}, {
+						name: "vat",
+						fieldLabel: t("VAT"),
+						hidden: App.user.isClient,
+						allowBlank: true
+					}]
+				}, {
+					xtype: "moneyfield",
+					name: "contract_value",
+					fieldLabel: t("Contract value"),
+					mask: App.user.currency + " #9.999.990,00",
+					value: 0,
+					readOnly: App.user.isClient,
+					allowBlank: true
+				}, {
+					name: "dist",
+					fieldLabel: t("DIST"),
+					hidden: App.user.isClient,
+					allowBlank: true
+				}]
 			}, {
 				title: t("Supplementary info"),
 				itemId: "suplementaryInfo",
@@ -145012,50 +144385,23 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 					enableKeyEvents: true,
 					labelWidth: 145
 				},
-				items: [
-				{
+				items: [{
+					xtype: "typepaymentcombo",
+					name: "typepaid",
+					fieldLabel: t("Type paid"),
+					allowBlank: true,
+					readOnly: App.user.isClient
+				}, {
+					xtype: "noyescombo",
+					name: "credit_notification_daily",
+					fieldLabel: t("Credit notification daily")
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					defaults: {
 						xtype: "textfield",
 						labelAlign: "right",
-						flex: 1
-					},
-					items: [
-						{
-							xtype: "typepaymentcombo",
-							name: "typepaid",
-							fieldLabel: t("Type paid"),
-							allowBlank: true,
-							flex: 2,
-							readOnly: App.user.isClient
-						}, {
-							xtype: "noyescombo",
-							labelWidth: 170,
-							name: "credit_notification_daily",
-							flex: 2,
-							fieldLabel: t("Credit notification daily")
-						},
-					]
-				},
-				// {
-				// 	xtype: "typepaymentcombo",
-				// 	name: "typepaid",
-				// 	fieldLabel: t("Type paid"),
-				// 	allowBlank: true,
-				// 	readOnly: App.user.isClient
-				// }, {
-				// 	xtype: "noyescombo",
-				// 	name: "credit_notification_daily",
-				// 	fieldLabel: t("Credit notification daily")
-				// }, 
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					defaults: {
-						xtype: "textfield",
-						labelAlign: "right",
-						// labelWidth: 145,
+						labelWidth: 145,
 						flex: 1
 					},
 					items: [{
@@ -145075,8 +144421,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						allowBlank: true,
 						flex: 3
 					}]
-				},
-				{
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					defaults: {
@@ -145088,7 +144433,6 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 					items: [{
 						xtype: "yesnocombo",
 						name: "email_services",
-						labelWidth: 170,
 						fieldLabel: t("Services email notification"),
 						flex: 2
 					}, {
@@ -145104,7 +144448,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 					defaults: {
 						xtype: "textfield",
 						labelAlign: "right",
-						// labelWidth: 145,
+						labelWidth: 145,
 						flex: 1
 					},
 					items: [{
@@ -145124,8 +144468,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						labelWidth: 170,
 						flex: 3
 					}]
-				}, 
-				{
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
 					labelWidth: 145,
@@ -145140,7 +144483,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						xtype: "numberfield",
 						name: "calllimit",
 						fieldLabel: t("Call limit"),
-						// labelWidth: 145,
+						labelWidth: 145,
 						value: "-1",
 						minValue: -1,
 						flex: 2
@@ -145158,206 +144501,83 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 						],
 						flex: 3
 					}]
-				},
-				{
+				}, {
+					xtype: "combobox",
+					store: [
+						["gsm", "gsm"],
+						["wav", "wav"],
+						["wav49", "wav49"]
+					],
+					name: "mix_monitor_format",
+					fieldLabel: t("Record call format"),
+					forceSelection: true,
+					editable: false,
+					allowBlank: true,
+					value: "gsm",
+					hidden: !App.user.isAdmin
+				}, {
+					xtype: "noyescombo",
+					name: "callshop",
+					fieldLabel: t("Callshop"),
+					allowBlank: true,
+					hidden: App.user.isClient
+				}, {
+					xtype: "numberfield",
+					name: "disk_space",
+					fieldLabel: t("Disk space"),
+					value: -1,
+					hidden: !haveServiceMenu,
+					minValue: -1,
+					readOnly: !App.user.isAdmin
+				}, {
+					xtype: "numberfield",
+					name: "sipaccountlimit",
+					fieldLabel: t("SIP account limit"),
+					value: "-1",
+					minValue: -1,
+					allowBlank: !App.user.isAdmin,
+					readOnly: !App.user.isAdmin,
+					hidden: !haveServiceMenu
+				}, {
+					xtype: "numberfield",
+					name: "callingcard_pin",
+					fieldLabel: t("CallingCard PIN"),
+					minValue: 100000,
+					maxLength: 6,
+					minLength: 6
+				}, {
 					xtype: "fieldcontainer",
 					layout: "hbox",
-					labelWidth: 145,
+					hidden: App.user.isClient,
 					defaults: {
+						xtype: "textfield",
 						labelAlign: "right",
-						hidden: !haveServiceMenu,
-						readOnly: !App.user.isAdmin,
-						allowBlank: true,
+						labelWidth: 145,
 						flex: 1
 					},
 					items: [{
+						xtype: "restrictioncombo",
+						name: "restriction",
+						fieldLabel: t("Restriction"),
+						allowBlank: true,
+						flex: 2
+					}, {
 						xtype: "combobox",
-						labelWidth: 170,
-						store: [
-							["gsm", "gsm"],
-							["wav", "wav"],
-							["wav49", "wav49"]
-						],
-						name: "mix_monitor_format",
-						fieldLabel: t("Record call format"),
+						name: "restriction_use",
+						fieldLabel: t("Use"),
 						forceSelection: true,
 						editable: false,
-						allowBlank: true,
-						value: "gsm",
-						hidden: !App.user.isAdmin
-					}, {
-						xtype: "noyescombo",
-						name: "callshop",
-						labelWidth: 170,
-						fieldLabel: t("Callshop"),
-						allowBlank: true,
-						hidden: App.user.isClient
+						hidden: true,
+						value: "1",
+						store: [
+							[1, t("Dial Number")],
+							[2, t("CallerID")],
+							[3, t("Bouth")]
+						],
+						labelWidth: 80,
+						flex: 2
 					}]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					labelWidth: 145,
-					defaults: {
-						labelAlign: "right",
-						hidden: !haveServiceMenu,
-						readOnly: !App.user.isAdmin,
-						allowBlank: true,
-						flex: 1
-					},
-					items: [{
-						xtype: "numberfield",
-						name: "disk_space",
-						fieldLabel: t("Disk space"),
-						value: -1,
-						hidden: !haveServiceMenu,
-						minValue: -1,
-						readOnly: !App.user.isAdmin
-					}, {
-						xtype: "numberfield",
-						name: "sipaccountlimit",
-						fieldLabel: t("SIP account limit"),
-						value: "-1",
-						minValue: -1,
-						labelWidth: 170,
-						allowBlank: !App.user.isAdmin,
-						readOnly: !App.user.isAdmin,
-						hidden: !haveServiceMenu
-					}]
-				},
-				{
-					xtype: "fieldcontainer",
-					layout: "hbox",
-					labelWidth: 145,
-					defaults: {
-						labelAlign: "right",
-						hidden: !haveServiceMenu,
-						readOnly: !App.user.isAdmin,
-						allowBlank: true,
-						flex: 1
-					},
-					items: [{
-						xtype: "numberfield",
-						name: "callingcard_pin",
-						fieldLabel: t("CallingCard PIN"),
-						labelWidth: 170,
-						minValue: 100000,
-						maxLength: 6,
-						minLength: 6
-					}, {
-						xtype: "fieldcontainer",
-						layout: "hbox",
-						hidden: App.user.isClient,
-						defaults: {
-							xtype: "textfield",
-							labelAlign: "right",
-							labelWidth: 145,
-							flex: 1
-						},
-						items: [{
-							xtype: "restrictioncombo",
-							name: "restriction",
-							fieldLabel: t("Restriction"),
-							allowBlank: true,
-							flex: 2
-						}, {
-							xtype: "combobox",
-							name: "restriction_use",
-							fieldLabel: t("Use"),
-							forceSelection: true,
-							editable: false,
-							hidden: true,
-							value: "1",
-							store: [
-								[1, t("Dial Number")],
-								[2, t("CallerID")],
-								[3, t("Bouth")]
-							],
-							labelWidth: 80,
-							flex: 2
-						}]
-					}]
-				}, 
-				// {
-				// 	xtype: "combobox",
-				// 	store: [
-				// 		["gsm", "gsm"],
-				// 		["wav", "wav"],
-				// 		["wav49", "wav49"]
-				// 	],
-				// 	name: "mix_monitor_format",
-				// 	fieldLabel: t("Record call format"),
-				// 	forceSelection: true,
-				// 	editable: false,
-				// 	allowBlank: true,
-				// 	value: "gsm",
-				// 	hidden: !App.user.isAdmin
-				// }, {
-				// 	xtype: "noyescombo",
-				// 	name: "callshop",
-				// 	fieldLabel: t("Callshop"),
-				// 	allowBlank: true,
-				// 	hidden: App.user.isClient
-				// }, 
-				// {
-				// 	xtype: "numberfield",
-				// 	name: "disk_space",
-				// 	fieldLabel: t("Disk space"),
-				// 	value: -1,
-				// 	hidden: !haveServiceMenu,
-				// 	minValue: -1,
-				// 	readOnly: !App.user.isAdmin
-				// }, {
-				// 	xtype: "numberfield",
-				// 	name: "sipaccountlimit",
-				// 	fieldLabel: t("SIP account limit"),
-				// 	value: "-1",
-				// 	minValue: -1,
-				// 	allowBlank: !App.user.isAdmin,
-				// 	readOnly: !App.user.isAdmin,
-				// 	hidden: !haveServiceMenu
-				// }, 
-				// {
-				// 	xtype: "numberfield",
-				// 	name: "callingcard_pin",
-				// 	fieldLabel: t("CallingCard PIN"),
-				// 	minValue: 100000,
-				// 	maxLength: 6,
-				// 	minLength: 6
-				// }, {
-				// 	xtype: "fieldcontainer",
-				// 	layout: "hbox",
-				// 	hidden: App.user.isClient,
-				// 	defaults: {
-				// 		xtype: "textfield",
-				// 		labelAlign: "right",
-				// 		labelWidth: 145,
-				// 		flex: 1
-				// 	},
-				// 	items: [{
-				// 		xtype: "restrictioncombo",
-				// 		name: "restriction",
-				// 		fieldLabel: t("Restriction"),
-				// 		allowBlank: true,
-				// 		flex: 2
-				// 	}, {
-				// 		xtype: "combobox",
-				// 		name: "restriction_use",
-				// 		fieldLabel: t("Use"),
-				// 		forceSelection: true,
-				// 		editable: false,
-				// 		hidden: true,
-				// 		value: "1",
-				// 		store: [
-				// 			[1, t("Dial Number")],
-				// 			[2, t("CallerID")],
-				// 			[3, t("Bouth")]
-				// 		],
-				// 		labelWidth: 80,
-				// 		flex: 2
-				// 	}]
-				// }
-			]
+				}]
 			}, {
 				title: window.showservices ? t("Services") : t("Send credit"),
 				itemId: "transferData",
@@ -145522,7 +144742,6 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 			scope: b,
 			text: t("Search"),
 			width: 80,
-			height: 36,
 			handler: b.onClickSearch,
 			hidden: b.hiddenSearchButton
 		});
@@ -150293,8 +149512,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 		b.extraButtons = [{
 			text: t("Bulk SIP"),
 			handler: "onBulk",
-			cls:"itr-form-sip",
-			width: App.user.language == "en" ? 120 : 120,
+			width: App.user.language == "en" ? 80 : 110,
 			disabled: false,
 			hidden: App.user.isClient || !b.allowCreate || window.isTablet
 		}];
@@ -155260,73 +154478,59 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 }, ["widget.trunkchart"], 0, [MBilling.view.dashboard, "TrunkChart"], 0));
 (Ext.cmd.derive("MBilling.view.dashboard.Trunks", Ext.Panel, {
 	cls: "service-type shadow",
-	// height: 320,
-	// bodyPadding: 15,
-	// title: t("Trunks"),
+	height: 320,
+	bodyPadding: 15,
+	title: t("Trunks"),
 	layout: {
 		type: "hbox",
 		align: "stretch"
 	},
 	initComponent: function() {
 		var b = this;
-		b.items = [
-			{
-				xtype: "component",
-				baseCls: "weather-panel custom-card-panel trunk-chart",
-				border: false,
-				height: height,
-				reference: "",
-				cls: "weather-panel custom-card-panel cpu-usage trunk-chart",
-				userCls: "",
-				hidden: App.user.hidden_prices == 1,
-				html: t("<div class='card-value arc'><img src='resources/images/new/trunkArcCrop.png' alt=''/></div><div class='card-value'><span>Trunk_MMD</span><br/><img src='resources/images/new/trunkMmd.png' alt=''/></div><div class='icon'><small>68%</small></div> <div class='card-value mt-1'> <span>Lexy_Call</span><br/><img src='resources/images/new/trunkCall.png' alt=''/></div><div class='icon mt-1'><small>24%</small></div><div class='card-value mt-1'> <span>Trunk_Twiching_USA</span><br/><img src='resources/images/new/trunkUsa.png' alt=''/></div><div class='icon mt-1'><small>6%</small></div><div class='card-value mt-1'> <span>Trunk_MMS</span><br/><img src='resources/images/new/trunkMms.png' alt=''/></div><div class='icon mt-1'><small>2%</small></div>"),
+		b.items = [{
+			width: 140,
+			items: [{
+				xtype: "trunkchart",
+				fieldValue: "nbcall"
+			}, {
+				xtype: "trunkchart",
+				fieldValue: "lucro"
+			}]
+		}, {
+			reference: "trunkDashboardFields",
+			flex: 1,
+			layout: {
+				type: "vbox",
+				align: "stretch"
 			},
-		// 	{
-		// 	width: 140,
-		// 	items: [{
-		// 		xtype: "trunkchart",
-		// 		fieldValue: "nbcall"
-		// 	}, {
-		// 		xtype: "trunkchart",
-		// 		fieldValue: "lucro"
-		// 	}]
-		// },
-		// {
-		// 	reference: "trunkDashboardFields",
-		// 	flex: 1,
-		// 	layout: {
-		// 		type: "vbox",
-		// 		align: "stretch"
-		// 	},
-		// 	items: [{
-		// 		xtype: "component"
-		// 	}, {
-		// 		xtype: "progressbar",
-		// 		cls: "bottom-indent service-finance",
-		// 		height: 4,
-		// 		minHeight: 4,
-		// 		value: 0
-		// 	}, {
-		// 		xtype: "component"
-		// 	}, {
-		// 		xtype: "progressbar",
-		// 		cls: "bottom-indent service-research",
-		// 		height: 4,
-		// 		minHeight: 4,
-		// 		value: 0
-		// 	}, {
-		// 		xtype: "component"
-		// 	}, {
-		// 		xtype: "progressbar",
-		// 		cls: "bottom-indent service-marketing",
-		// 		height: 4,
-		// 		value: 0
-		// 	}, {
-		// 		xtype: "component",
-		// 		html: ""
-		// 	}]
-		// }
-	];
+			items: [{
+				xtype: "component"
+			}, {
+				xtype: "progressbar",
+				cls: "bottom-indent service-finance",
+				height: 4,
+				minHeight: 4,
+				value: 0
+			}, {
+				xtype: "component"
+			}, {
+				xtype: "progressbar",
+				cls: "bottom-indent service-research",
+				height: 4,
+				minHeight: 4,
+				value: 0
+			}, {
+				xtype: "component"
+			}, {
+				xtype: "progressbar",
+				cls: "bottom-indent service-marketing",
+				height: 4,
+				value: 0
+			}, {
+				xtype: "component",
+				html: ""
+			}]
+		}];
 		Ext.panel.Panel.prototype.initComponent.apply(this, arguments)
 	}
 }, 0, ["trunks"], ["component", "box", "container", "panel", "trunks"], {
@@ -155345,7 +154549,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 	},
 	initComponent: function() {
 		var b = this;
-		// b.title = t("Server hardware");
+		b.title = t("Server hardware");
 		b.items = [{
 			flex: 1,
 			layout: "fit",
@@ -155359,109 +154563,107 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 				type: "hbox",
 				align: "stretch"
 			},
-			// items: [{
-			// 	flex: 1,
-			// 	cls: "dashboard-graph-analysis-left",
-			// 	layout: {
-			// 		type: "vbox",
-			// 		align: "stretch"
-			// 	},
-			// 	items: [{
-			// 		xtype: "component",
-			// 		cls: "top-info-container",
-			// 		reference: "cpuMediaUso",
-			// 		html: ""
-			// 	}, {
-			// 		xtype: "progressbar",
-			// 		cls: "left-top-text progressbar-no-text",
-			// 		reference: "cpuPercent",
-			// 		hideMode: "offsets"
-			// 	}, {
-			// 		xtype: "component",
-			// 		cls: "left-top-text",
-			// 		reference: "diskFree",
-			// 		html: "",
-			// 		padding: "10 0 0 0"
-			// 	}, {
-			// 		xtype: "progressbar",
-			// 		cls: "left-top-text progressbar-no-text",
-			// 		reference: "diskPerc",
-			// 		hideMode: "offsets"
-			// 	}]
-			// }, {
-			// 	flex: 1,
-			// 	cls: "graph-analysis-right",
-			// 	margin: "15 0 0 0",
-			// 	padding: "0 0 0 15",
-			// 	layout: {
-			// 		type: "vbox",
-			// 		align: "stretch"
-			// 	},
-			// 	itemPadding: "0 0 10 0",
-			// 	items: [
-			// 		{
-			// 		flex: 1,
-			// 		layout: {
-			// 			type: "hbox",
-			// 			align: "stretch"
-			// 		},
-			// 		padding: "0 0 10 0",
-			// 		items: [{
-			// 			xtype: "component",
-			// 			flex: 1,
-			// 			cls: "graph-analysis-right-inner-container",
-			// 			html: t("Mem total")
-			// 		}, {
-			// 			xtype: "component",
-			// 			flex: 1,
-			// 			padding: "0 10 0 0",
-			// 			cls: "graph-analysis-right-inner-container right-value",
-			// 			html: "0",
-			// 			reference: "memTotal"
-			// 		}]
-			// 	},
-			// 	{
-			// 		flex: 1,
-			// 		layout: {
-			// 			type: "hbox",
-			// 			align: "stretch"
-			// 		},
-			// 		padding: "0 0 10 0",
-			// 		items: [{
-			// 			xtype: "component",
-			// 			flex: 1,
-			// 			cls: "graph-analysis-right-inner-container",
-			// 			html: t("Mem used")
-			// 		}, {
-			// 			xtype: "component",
-			// 			flex: 1,
-			// 			padding: "0 10 0 0",
-			// 			cls: "graph-analysis-right-inner-container right-value",
-			// 			html: "0",
-			// 			reference: "memUsed"
-			// 		}]
-			// 	}, {
-			// 		flex: 1,
-			// 		layout: {
-			// 			type: "hbox",
-			// 			align: "stretch"
-			// 		},
-			// 		padding: "0 0 10 0",
-			// 		items: [{
-			// 			xtype: "component",
-			// 			flex: 1,
-			// 			cls: "graph-analysis-right-inner-container",
-			// 			html: t("Uptime")
-			// 		}, {
-			// 			xtype: "component",
-			// 			flex: 1,
-			// 			padding: "0 10 0 0",
-			// 			cls: "graph-analysis-right-inner-container right-value",
-			// 			html: "0",
-			// 			reference: "uptime"
-			// 		}]
-			// 	}]
-			// }]
+			items: [{
+				flex: 1,
+				cls: "dashboard-graph-analysis-left",
+				layout: {
+					type: "vbox",
+					align: "stretch"
+				},
+				items: [{
+					xtype: "component",
+					cls: "top-info-container",
+					reference: "cpuMediaUso",
+					html: ""
+				}, {
+					xtype: "progressbar",
+					cls: "left-top-text progressbar-no-text",
+					reference: "cpuPercent",
+					hideMode: "offsets"
+				}, {
+					xtype: "component",
+					cls: "left-top-text",
+					reference: "diskFree",
+					html: "",
+					padding: "10 0 0 0"
+				}, {
+					xtype: "progressbar",
+					cls: "left-top-text progressbar-no-text",
+					reference: "diskPerc",
+					hideMode: "offsets"
+				}]
+			}, {
+				flex: 1,
+				cls: "graph-analysis-right",
+				margin: "15 0 0 0",
+				padding: "0 0 0 15",
+				layout: {
+					type: "vbox",
+					align: "stretch"
+				},
+				itemPadding: "0 0 10 0",
+				items: [{
+					flex: 1,
+					layout: {
+						type: "hbox",
+						align: "stretch"
+					},
+					padding: "0 0 10 0",
+					items: [{
+						xtype: "component",
+						flex: 1,
+						cls: "graph-analysis-right-inner-container",
+						html: t("Mem total")
+					}, {
+						xtype: "component",
+						flex: 1,
+						padding: "0 10 0 0",
+						cls: "graph-analysis-right-inner-container right-value",
+						html: "0",
+						reference: "memTotal"
+					}]
+				}, {
+					flex: 1,
+					layout: {
+						type: "hbox",
+						align: "stretch"
+					},
+					padding: "0 0 10 0",
+					items: [{
+						xtype: "component",
+						flex: 1,
+						cls: "graph-analysis-right-inner-container",
+						html: t("Mem used")
+					}, {
+						xtype: "component",
+						flex: 1,
+						padding: "0 10 0 0",
+						cls: "graph-analysis-right-inner-container right-value",
+						html: "0",
+						reference: "memUsed"
+					}]
+				}, {
+					flex: 1,
+					layout: {
+						type: "hbox",
+						align: "stretch"
+					},
+					padding: "0 0 10 0",
+					items: [{
+						xtype: "component",
+						flex: 1,
+						cls: "graph-analysis-right-inner-container",
+						html: t("Uptime")
+					}, {
+						xtype: "component",
+						flex: 1,
+						padding: "0 10 0 0",
+						cls: "graph-analysis-right-inner-container right-value",
+						html: "0",
+						reference: "uptime"
+					}]
+				}]
+			}]
 		}];
 		Ext.panel.Panel.prototype.initComponent.apply(this, arguments)
 	}
@@ -155514,7 +154716,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 	initComponent: function() {
 		var b = this;
 		b.rendererFieldValue = function(e, f, a) {
-			return a.renderer(f) + " kb/s"
+			return a.renderer(f) + "kb/s"
 		};
 		b.sessionLoad = Ext.create("Ext.util.DelayedTask", function() {
 			b.store.load({
@@ -155524,7 +154726,7 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 		}, b);
 		b.sprites = [{
 			type: "text",
-			// text: t("Network usage"),
+			text: t("Network usage"),
 			fontSize: 10,
 			width: 100,
 			height: 30,
@@ -155618,11 +154820,12 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 		if(d[0].data.disk_perc > 90) {
 			c.lookupReference("diskFree").update('<span class="x-fa fa-server"><font color=red>&nbsp; <b>Disk Avail ' + d[0].data.disk_free + "G. " + d[0].data.disk_perc + "% USED</b></font></span>")
 		} else {
-			c.lookupReference("diskFree").update('<span class="x-fa fa-server">&nbsp; Disk Avail ' + d[0].data.disk_free + "G</span>")
+			//c.lookupReference("diskFree").update('<span class="x-fa fa-server">&nbsp; Disk Avail ' + d[0].data.disk_free + "G</span>")
+			c.lookupReference("diskFree").update('<span class="x-fa fa-server">&nbsp; Disk Avail  "G</span>')
 		}
 		c.lookupReference("diskPerc").setValue(d[0].data.disk_perc / 100);
 		c.lookupReference("memTotal").update(d[0].data.memTotal + "&nbsp;GB ");
-		c.lookupReference("memUsed").update(d[0].data.memUsed + "&nbsp;GB ");
+		c.lookupReference("memUsed").update(d[0].data.memUsed + "&nbsp;GB "); 
 		c.lookupReference("uptime").update(d[0].data.uptime);
 		imageContainerHeight = c.lookupReference("totalusersdiv").height;
 		userstpl = '<div class="weather-image-container" style="height: ' + imageContainerHeight + 'px;"><img src="resources/images/icons/users-icon.png" style="height: ' + imageContainerHeight * 0.6 + 'px;" alt="' + t("Active users") + '"/></div><div class="weather-details-container"><div>' + d[0].data.totalActiveUsers + "</div><div>" + t("Active users") + "</div></div>";
@@ -155685,129 +154888,56 @@ Ext.define("Overrides.ux.form.field.DateTime", {
 				width = window.isTablet ? Ext.Element.getViewportWidth() - 240 : Ext.Element.getViewportWidth() - 220;
 				height = (Ext.Element.getViewportHeight() - 130) / 2;
 				if(App.user.isAdmin) {
-					b.items = [ 
-					{
-						xtype: "component",
-						bodyPadding: 5,
-						baseCls: "",
-						border: false,
-						height: (height - 105) / 4,
-						cls: "",
-						userCls: "big-100 small-100",
-						html: t("<h1 class='heading-text'>Dashboard</h1>")
-					},
-					{
-						xtype: "component",
-						bodyPadding: 5,
-						baseCls: "",
-						border: false,
-						height: (height - 80) / 4,
-						margin: "15 0 0 10",
-						cls: "",
-						userCls: "big-100 small-100",
-						html: t("<h3 class='title'>Copyright goes here</h3>")
-					},
-					{
-						xtype: "component",
-						bodyPadding: 5,
-						baseCls: "weather-panel custom-card-panel",
-						border: false,
-						height: (height - 30) / 3,
-						reference: "totalusersdiv",
-						cls: "weather-panel custom-card-panel shadow",
-						userCls: "big-25 small-100",
-						html: t("<div class='card-value'><small>Active users</small><br/><h2 class='head-label'>84</h2></div><div class='icon'><img src='resources/images/new/userIcon.png' alt=''/></div>")
-					}, {
-						xtype: "component",
-						baseCls: "weather-panel custom-card-panel",
-						border: false,
-						height: (height - 30) / 3,
-						reference: "maximumcc",
-						cls: "weather-panel custom-card-panel shadow",
-						userCls: "big-25 small-100",
-						html: t("<div class='card-value'><small>Today peak</small><br/><h2 class='head-label'>CC 0 | CPS 0</h2></div><div class='icon'><img src='resources/images/new/graphIcon.png' alt=''/></div>")
-					}, {
-						xtype: "component",
-						baseCls: "weather-panel custom-card-panel",
-						border: false,
-						height: (height - 30) / 3,
-						reference: "monthprofitdiv",
-						cls: "weather-panel custom-card-panel shadow",
-						userCls: "big-25 small-100",
-						html: t("<div class='card-value'><small>Month profit</small><br/><h2 class='head-label'>$1,582.28</h2></div><div class='icon'><img src='resources/images/new/walletIcon.png' alt=''/></div>"),
-						hidden: App.user.hidden_prices == 1
-					}, {
-						xtype: "component",
-						baseCls: "weather-panel custom-card-panel",
-						border: false,
-						height: (height - 30) / 3,
-						reference: "totalrefill",
-						cls: "weather-panel custom-card-panel shadow",
-						userCls: "big-25 small-100",
-						html: t("<div class='card-value'><small>Month refill</small><br/><h2 class='head-label'>$204.7</h2></div><div class='icon'><img src='resources/images/new/walletArrowIcon.png' alt=''/></div>"),
-						hidden: App.user.hidden_prices == 1
-					},
-					{
-						xtype: "component",
-						bodyPadding: 5,
-						baseCls: "",
-						border: false,
-						height: (height - 80) / 4,
-						margin: "15 0 0 10",
-						cls: "",
-						userCls: "big-100 small-100",
-						html: t("<h3 class='title'>Server hardware</h3>")
-					},
-					{
+					b.items = [{
 						xtype: "network",
-						height: (height + 10),
-						userCls: "big-75 small-100"
-					},
-					{
+						height: height,
+						userCls: "big-60 small-100"
+					}, {
 						xtype: "component",
-						baseCls: "weather-panel custom-card-panel",
+						bodyPadding: 5,
+						baseCls: "weather-panel",
 						border: false,
-						height: (height + 10),
+						height: (height - 60) / 4,
+						reference: "totalusersdiv",
+						cls: "weather-panel shadow",
+						userCls: "big-40 small-100"
+					}, {
+						xtype: "component",
+						baseCls: "weather-panel",
+						border: false,
+						height: (height - 60) / 4,
+						reference: "maximumcc",
+						cls: "weather-panel shadow",
+						userCls: "big-40 small-100"
+					}, {
+						xtype: "component",
+						baseCls: "weather-panel",
+						border: false,
+						height: (height - 60) / 4,
+						reference: "monthprofitdiv",
+						cls: "weather-panel shadow",
+						userCls: "big-40 small-100",
+						hidden: App.user.hidden_prices == 1
+					}, {
+						xtype: "component",
+						baseCls: "weather-panel",
+						border: false,
+						height: (height - 60) / 4,
 						reference: "totalrefill",
-						cls: "weather-panel custom-card-panel cpu-usage shadow",
-						userCls: "big-25 small-100",
-						hidden: App.user.hidden_prices == 1,
-						html: t("<div class='card-value'><img src='resources/images/new/serverIcon.png' alt=''/> <span>CPU usage</span><br/><img src='resources/images/new/serverLoading.png' alt=''/></div><div class='icon'><small>4%</small></div> <div class='card-value mt-1'><img src='resources/images/new/loadingIcon.png' alt=''/> <span>Load average</span><br/><img src='resources/images/new/averageLoading.png' alt=''/></div><div class='icon mt-1'><small>0.06%</small></div><div class='card-value mt-1'><img src='resources/images/new/diskIcon.png' alt=''/> <span>Disk available space</span><br/><img src='resources/images/new/diskLoading.png' alt=''/></div><div class='icon mt-1'><small>40 Gb</small></div><div class='card-value mt-1'><img src='resources/images/new/totalIcon.png' alt=''/> <span>Memory total</span><br/></div><div class='icon mt-1'><small>4 Gb</small></div><div class='card-value mt-1'><img src='resources/images/new/usedIcon.png' alt=''/> <span>Memory used</span><br/></div><div class='icon mt-1'><small>1.7 Gb</small></div><div class='card-value uptimeIcon-value mt-1'><img src='resources/images/new/uptimeIcon.png' alt=''/> <span>Uptime</span><br/></div><div class='icon uptimeIcon-value-icon mt-1'><small>5 days 21:16:22</small></div>"),
-					},
-					{
-						xtype: "component",
-						bodyPadding: 5,
-						baseCls: "",
-						border: false,
-						height: (height - 80) / 4,
-						margin: "15 0 0 10",
-						cls: "",
-						userCls: "big-75 small-100",
-						html: t("<h3 class='title'>Simultaneous calls</h3>")
-					},
-					{
-						xtype: "component",
-						bodyPadding: 5,
-						baseCls: "",
-						border: false,
-						height: (height - 80) / 4,
-						margin: "15 0 0 10",
-						cls: "",
-						userCls: "big-25 small-100",
-						html: t("<h3 class='title trunks'>Trunk chart</h3>")
-					},
-					 {
+						cls: "weather-panel shadow",
+						userCls: "big-40 small-100",
+						hidden: App.user.hidden_prices == 1
+					}, {
 						xtype: "callonlinechartchart",
+						title: t("Simultaneous calls"),
 						cls: "dashboard-main-chart shadow",
-						height: (height + 60),
+						height: height,
 						showDownload: false,
 						hiddenButtonsCharts: true,
-						userCls: "big-75 small-100"
+						userCls: "big-60 small-100"
 					}, {
 						xtype: "trunks",
-						cls: "dashboard-main-chart",
-						userCls: "big-25 small-100",
-						height: (height + 60)
+						userCls: "big-40 small-100"
 					}]
 				} else {
 					if(App.user.showMCDashBoard == true && showCampaignDashBoad) {
